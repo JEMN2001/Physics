@@ -12,21 +12,25 @@ m_max = lista[len(lista)-1][2]
 t_max = lista[0][0]
 
 ext = []
+con = input("Enter the convertion parameter\n> ")
+con = float(con)
+
+fps = 24.0
 
 for listo in lista:
-	if(listo[1] < 250):
+	if(True):
 	    tmp = [0, listo[1], 0]
 	    var = listo[2]
-	    var = (m_max-var)/228.0
+	    var = (m_max-var)/con
 	    tmp[2] = var
 	    var = listo[0]
-	    var = (var-t_max)/24.0
+	    var = (var-t_max)/fps
 	    tmp[0] = var
 	    ext.append(tmp)
 In.close()
 
 Out = open("trajm.dat", "w")
-for listo in ext[3:len(ext)-1]:
+for listo in ext[0:6]:
     #if (listo[0] < 0.4):
     Out.write("{0} {1} {2}\n".format(listo[0], listo[1], listo[2]))
 Out.close()
